@@ -1,0 +1,75 @@
+[gd_scene load_steps=6 format=3 uid="uid://8345vdevvc2n"]
+
+[ext_resource type="Script" uid="uid://bobftryjmp45n" path="res://commands_screen.gd" id="1_n52iv"]
+[ext_resource type="Texture2D" uid="uid://djpt1raxe1hax" path="res://sprites/Seasonal Tilesets/4 - Winter World/Background parts/_Complete_static_BG_(288 x 208).png" id="2_xychd"]
+[ext_resource type="Theme" uid="uid://cl2vtf3tyed83" path="res://utilities/default-buttons.tres" id="3_rqkmr"]
+
+[sub_resource type="SystemFont" id="SystemFont_abtei"]
+font_names = PackedStringArray("Microsoft New Tai Lue")
+font_weight = 700
+
+[sub_resource type="LabelSettings" id="LabelSettings_nc046"]
+font = SubResource("SystemFont_abtei")
+font_color = Color(0, 0, 0, 1)
+
+[node name="commands_screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n52iv")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_xychd")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -122.0
+offset_top = -48.5
+offset_right = 122.0
+offset_bottom = 48.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+text = "W -> ANDAR
+S -> ABAIXAR
+A, D -> MOVER (ou use as setas)
+ESPAÇO -> PULAR
+"
+label_settings = SubResource("LabelSettings_nc046")
+
+[node name="return_button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = 55.0
+offset_right = 21.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme = ExtResource("3_rqkmr")
+text = " VOLTAR    
+"
+
+[connection signal="pressed" from="return_button" to="." method="_on_return_button_pressed"]

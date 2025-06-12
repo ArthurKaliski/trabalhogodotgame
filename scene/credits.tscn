@@ -1,0 +1,63 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsg3v3c0tyd7j"]
+
+[ext_resource type="Script" uid="uid://lqgbkb8bd3k8" path="res://scripts/credits.gd" id="1_hgo0l"]
+[ext_resource type="Theme" uid="uid://cl2vtf3tyed83" path="res://utilities/default-buttons.tres" id="2_s4ovi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_55r6w"]
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hgo0l")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MainContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -111.0
+offset_top = -63.5
+offset_right = 111.0
+offset_bottom = 63.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="MainContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.463081, 0.571369, 1)
+text = "CRÉDITOS:
+Gabriel Henrique Rampelotti
+Arthur Stadnik
+Arthur Kalinski
+Felipe de Lima"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MainContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_55r6w")
+
+[node name="return_button" type="Button" parent="MainContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_s4ovi")
+text = " VOLTAR "
+
+[connection signal="pressed" from="MainContainer/return_button" to="." method="_on_return_button_pressed"]

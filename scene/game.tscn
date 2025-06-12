@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=4 uid="uid://cfapldeoyule2"]
+
+[ext_resource type="TileSet" uid="uid://dphk415t2wbih" path="res://tiles/terrain.tres" id="2_33cqm"]
+[ext_resource type="PackedScene" uid="uid://ddu1pa63sriml" path="res://entities/player.tscn" id="2_dbls1"]
+[ext_resource type="TileSet" uid="uid://bw8sqw6brtn7v" path="res://tiles/decoration.tres" id="3_xwcet"]
+[ext_resource type="PackedScene" uid="uid://c048wr5hrm0jx" path="res://entities/camera.tscn" id="4_xwcet"]
+[ext_resource type="PackedScene" uid="uid://bcaf2h6dygrg2" path="res://entities/level_end.tscn" id="7_17rxn"]
+[ext_resource type="Texture2D" uid="uid://dv3dposm0fngj" path="res://sprites/Seasonal Tilesets/1 - Grassland/Background parts/_Complete_static_BG_(288 x 208).png" id="7_ll5lq"]
+[ext_resource type="PackedScene" uid="uid://lymsyeuadlcg" path="res://entities/skeleton.tscn" id="7_qpk70"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yq8tf"]
+size = Vector2(20, 108)
+
+[node name="Game" type="Node2D"]
+position = Vector2(368, 356)
+metadata/_edit_vertical_guides_ = [400.0]
+
+[node name="Player" parent="." instance=ExtResource("2_dbls1")]
+position = Vector2(-326, -169)
+
+[node name="Tiles" type="Node2D" parent="."]
+
+[node name="Terrain" type="TileMapLayer" parent="Tiles"]
+z_index = 2
+tile_map_data = PackedByteArray("AADp//b/AAAFAAMAAADq//b/AAACAAMAAADr//b/AAACAAMAAADs//b/AAACAAMAAADt//b/AAACAAMAAADu//b/AAACAAMAAADv//b/AAACAAMAAADw//b/AAACAAMAAADx//b/AAACAAMAAADy//b/AAACAAMAAADz//b/AAACAAMAAAD0//b/AAACAAMAAAD1//b/AAACAAMAAAD2//b/AAACAAMAAAD3//b/AAACAAMAAAD4//b/AAACAAMAAAD5//b/AAACAAMAAAD6//b/AAACAAMAAAD7//b/AAACAAMAAAD8//b/AAACAAMAAAD9//b/AAACAAMAAAD+//b/AAACAAMAAAD///b/AAACAAMAAAAAAPb/AAACAAMAAAABAPb/AAACAAMAAAACAPb/AAACAAMAAAADAPb/AAACAAMAAAAEAPb/AAACAAMAAAAFAPb/AAACAAMAAAAGAPb/AAACAAMAAAAHAPb/AAACAAMAAAAIAPb/AAACAAMAAAAJAPb/AAACAAMAAAAKAPb/AAACAAMAAAALAPb/AAACAAMAAAAMAPb/AAACAAMAAAANAPb/AAACAAMAAAAOAPb/AAACAAMAAAAPAPb/AAACAAMAAADy//H/AAAJAAMAAADz//H/AAAKAAMAAAD1//H/AAANAAMAAAD0//H/AAAKAAMAAADz//T/AAAJAAMAAAD0//T/AAAKAAMAAAD1//T/AAANAAMAAADq/+//AAAJAAMAAADr/+//AAAKAAMAAADs/+//AAAKAAMAAADt/+//AAAKAAMAAADu/+//AAAKAAMAAADv/+//AAANAAMAAADr/+z/AAAJAAMAAADt/+z/AAANAAMAAADs/+z/AAAKAAMAAADy/+r/AAAJAAMAAADz/+r/AAAKAAMAAAD0/+r/AAAKAAMAAAD1/+r/AAANAAMAAAD3/+z/AAAJAAMAAAD4/+z/AAAKAAMAAAD5/+z/AAAKAAMAAAD7/+z/AAAKAAMAAAD6/+z/AAAKAAMAAAD8/+z/AAAKAAMAAAD9/+z/AAAKAAMAAAD+/+z/AAAKAAMAAAD//+z/AAAKAAMAAAAAAOz/AAAKAAMAAAABAOz/AAANAAMAAADp/+T/AAAHAAMAAADp/+X/AAAFAAUAAADp/+b/AAAFAAUAAADp/+f/AAAFAAUAAADp/+j/AAAFAAUAAADp/+n/AAAFAAUAAADp/+r/AAAFAAUAAADp/+v/AAAFAAUAAADp/+z/AAAFAAUAAADp/+3/AAAFAAUAAADp/+7/AAAFAAUAAADp/+//AAAFAAUAAADp//D/AAAFAAUAAADp//H/AAAFAAUAAADp//L/AAAFAAUAAADp//P/AAAFAAUAAADp//T/AAAFAAUAAADp//X/AAAFAAUAAAABAPX/AAADAAUAAAABAPT/AAADAAUAAAABAPP/AAADAAUAAAABAPL/AAADAAUAAAABAPH/AAADAAUAAAABAPD/AAADAAUAAAABAO//AAABAAMAAAA=")
+tile_set = ExtResource("2_33cqm")
+
+[node name="Decoration" type="TileMapLayer" parent="Tiles"]
+tile_map_data = PackedByteArray("AADq//T/AAAFAAEAAADs//T/AAAFAAEAAADr//T/AAAFAAEAAADt//T/AAAFAAEAAADu//T/AAAFAAEAAADv//T/AAAFAAEAAADw//T/AAAFAAEAAADx//T/AAAFAAEAAADt//X/AQABAAAAAADw//X/AQADAAAAAADu//X/AQACAAAAAAD6//P/AgAAAAAAAAD0//X/AQABAAAAAAD6//X/AQABAAAAAADy//X/AAABAAUAAAD3//X/AAABAAUAAAD9//X/AAABAAUAAADq//X/AAABAAUAAAD+//T/AAAFAAEAAAAAAPT/AAAFAAEAAAD///T/AAAFAAEAAADy//T/AAAFAAEAAAA=")
+tile_set = ExtResource("3_xwcet")
+
+[node name="Camera" parent="." instance=ExtResource("4_xwcet")]
+position = Vector2(-106.325, -232.671)
+limit_right = 400
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Sky3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.1, 0.1)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Sky3"]
+texture_repeat = 2
+position = Vector2(-36, -101)
+scale = Vector2(1.36458, 1.5625)
+texture = ExtResource("7_ll5lq")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 576, 208)
+
+[node name="LevelEnd" parent="." instance=ExtResource("7_17rxn")]
+z_index = 2
+position = Vector2(23, -332)
+next_level = "forest"
+
+[node name="CollisionShape2D" parent="LevelEnd" index="0"]
+position = Vector2(0, -41)
+shape = SubResource("RectangleShape2D_yq8tf")
+
+[node name="Skeleton" parent="." instance=ExtResource("7_qpk70")]
+position = Vector2(-105, -336)
+
+[editable path="LevelEnd"]

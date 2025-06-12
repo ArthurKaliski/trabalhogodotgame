@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=3 uid="uid://m3nmqbgruh1t"]
+
+[ext_resource type="Script" uid="uid://cn3j0grqhw7c1" path="res://scene/end_screen.gd" id="1_jdec7"]
+[ext_resource type="Texture2D" uid="uid://div8cbsmjqic0" path="res://sprites/Seasonal Tilesets/2 - Autumn Forest/Background parts/_Complete_static_BG_(288 x 208).png" id="1_yhdaf"]
+[ext_resource type="Theme" uid="uid://cl2vtf3tyed83" path="res://utilities/default-buttons.tres" id="2_jdec7"]
+
+[sub_resource type="SystemFont" id="SystemFont_cgu5q"]
+font_names = PackedStringArray("MV Boli")
+
+[sub_resource type="LabelSettings" id="LabelSettings_w5cn3"]
+font = SubResource("SystemFont_cgu5q")
+font_size = 32
+font_color = Color(0.517808, 0.329335, 0.235504, 1)
+shadow_size = 5
+shadow_color = Color(1, 1, 1, 1)
+
+[node name="end_screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jdec7")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_yhdaf")
+
+[node name="MainContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="MainContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "FIM DE JOGO"
+label_settings = SubResource("LabelSettings_w5cn3")
+uppercase = true
+
+[node name="return_button" type="Button" parent="."]
+layout_mode = 2
+offset_left = 107.0
+offset_top = 158.0
+offset_right = 179.0
+offset_bottom = 183.0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme = ExtResource("2_jdec7")
+text = "SAIR"
+
+[connection signal="pressed" from="return_button" to="." method="_on_return_button_pressed"]

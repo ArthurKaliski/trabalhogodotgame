@@ -1,0 +1,140 @@
+[gd_scene load_steps=13 format=4 uid="uid://dayvedyuydbux"]
+
+[ext_resource type="PackedScene" uid="uid://ddu1pa63sriml" path="res://entities/player.tscn" id="1_ry6l7"]
+[ext_resource type="TileSet" uid="uid://dphk415t2wbih" path="res://tiles/terrain.tres" id="2_4big0"]
+[ext_resource type="TileSet" uid="uid://bw8sqw6brtn7v" path="res://tiles/decoration.tres" id="3_mf6tq"]
+[ext_resource type="Texture2D" uid="uid://x8c33moyn7vo" path="res://sprites/Seasonal Tilesets/3 - Tropics/Background parts/5 - Sky_color.png" id="4_7xb8y"]
+[ext_resource type="Texture2D" uid="uid://c1qxfw5i7tr6i" path="res://sprites/Seasonal Tilesets/3 - Tropics/Background parts/4 - Floating_clouds.png" id="5_34ia6"]
+[ext_resource type="PackedScene" uid="uid://c048wr5hrm0jx" path="res://entities/camera.tscn" id="5_d18o5"]
+[ext_resource type="Texture2D" uid="uid://d3dhnu100dwef" path="res://sprites/Seasonal Tilesets/3 - Tropics/Background parts/3 - Background_clouds.png" id="6_d18o5"]
+[ext_resource type="Texture2D" uid="uid://3lu1k30sffc0" path="res://sprites/Seasonal Tilesets/3 - Tropics/Background parts/1 - Waters_version_1.png" id="7_t8vtq"]
+[ext_resource type="Texture2D" uid="uid://b668g10y5vefn" path="res://sprites/Seasonal Tilesets/3 - Tropics/Background parts/2 - Waters_version_2.png" id="8_ei81g"]
+[ext_resource type="PackedScene" uid="uid://lymsyeuadlcg" path="res://entities/skeleton.tscn" id="11_ei81g"]
+[ext_resource type="PackedScene" uid="uid://bcaf2h6dygrg2" path="res://entities/level_end.tscn" id="11_t8vtq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7xb8y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_t8vtq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ei81g")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Tropic" type="Node2D"]
+metadata/_edit_vertical_guides_ = [550.0]
+
+[node name="TileMaps" type="Node" parent="."]
+
+[node name="Terrain" type="TileMapLayer" parent="TileMaps"]
+position = Vector2(-127, 26)
+tile_map_data = PackedByteArray("AAAIAAsAAwACAAMAAAAJAAsAAwACAAMAAAAKAAsAAwACAAMAAAALAAsAAwACAAMAAAAMAAsAAwACAAMAAAANAAsAAwACAAMAAAAOAAsAAwACAAMAAAAPAAsAAwACAAMAAAAQAAsAAwACAAMAAAARAAsAAwACAAMAAAASAAsAAwACAAMAAAATAAsAAwACAAMAAAAUAAsAAwACAAMAAAAVAAsAAwACAAMAAAAWAAsAAwACAAMAAAAXAAsAAwACAAMAAAAYAAsAAwACAAMAAAAZAAsAAwACAAMAAAAaAAsAAwACAAMAAAAbAAsAAwACAAMAAAAcAAsAAwACAAMAAAAdAAsAAwACAAMAAAAeAAsAAwACAAMAAAAfAAsAAwACAAMAAAAgAAsAAwACAAMAAAAhAAsAAwACAAMAAAAiAAsAAwACAAMAAAAjAAsAAwACAAMAAAAkAAsAAwACAAMAAAAlAAsAAwACAAMAAAAmAAsAAwACAAMAAAAnAAsAAwACAAMAAAAoAAsAAwACAAMAAAApAAsAAwACAAMAAAAWAAAAAwAJAAMAAAAXAAAAAwAKAAMAAAAYAAAAAwAMAAMAAAAmAAgAAwAEAAMAAAAnAAUAAwAEAAMAAAAmAAoAAwAEAAQAAAAmAAkAAwAEAAQAAAAnAAgAAwAEAAQAAAAnAAcAAwAEAAQAAAAnAAYAAwAEAAQAAAAoAAYAAwADAAQAAAAoAAcAAwADAAQAAAAoAAgAAwADAAQAAAAoAAkAAwADAAQAAAAnAAkAAwADAAQAAAAnAAoAAwADAAQAAAAoAAoAAwADAAQAAAApAAoAAwADAAQAAAApAAkAAwADAAQAAAApAAgAAwADAAQAAAApAAcAAwADAAQAAAApAAYAAwADAAQAAAApAAUAAwADAAQAAAApAAQAAwADAAQAAAApAAMAAwADAAQAAAApAAIAAwADAAQAAAAqAAIAAwADAAQAAAAqAAMAAwADAAQAAAAqAAQAAwADAAQAAAAqAAUAAwADAAQAAAAqAAYAAwADAAQAAAAqAAcAAwADAAQAAAAqAAgAAwADAAQAAAAqAAkAAwADAAQAAAAqAAoAAwADAAQAAAAqAAsAAwADAAQAAAAoAAUAAwAEAAQAAAApAAEAAwAEAAQAAAAqAAAAAwAEAAQAAAAqAP//AwAEAAMAAAAqAAEAAwAEAAQAAAAoAAIAAwAEAAMAAAAoAAMAAwAEAAQAAAAoAAQAAwAEAAQAAAAlAAgAAwADAAUAAAAlAAkAAwADAAUAAAAlAAoAAwADAAUAAAApAP//AwAEAAMAAAApAAAAAwAEAAQAAAAmAAUAAwADAAMAAAAmAAYAAwAEAAMAAAAmAAcAAwAEAAMAAAAnAAIAAwAEAAMAAAAoAP//AwADAAMAAAAoAAAAAwAEAAMAAAAoAAEAAwAEAAMAAAAnAAMAAwAEAAMAAAAnAAQAAwAEAAMAAAAlAAAAAwABAAMAAAAmAAEAAwAEAAMAAAAmAAIAAwADAAQAAAAmAAMAAwADAAUAAAAmAAQAAwADAAUAAAAnAAEAAwAEAAMAAAAnAAAAAwAEAAMAAAAmAAAAAwAEAAMAAAAlAAEAAwADAAUAAAAlAAUAAwABAAMAAAAlAAYAAwADAAUAAAAlAAcAAwADAAUAAAAmAP//AwABAAMAAAAnAP//AwACAAMAAAAlAAIAAwABAAQAAAAZAAAAAwAKAAMAAAAaAAAAAwAKAAMAAAAbAAAAAwAKAAMAAAAcAAAAAwAKAAMAAAAdAAAAAwAKAAMAAAAeAAAAAwAKAAMAAAAfAAAAAwAKAAMAAAAgAAAAAwANAAMAAAAoAP7/AwADAAUAAAAoAP3/AwADAAIAAAAoAPz/AwADAAEAAAAqAPz/AwAEAAEAAAApAPz/AwAEAAEAAAApAP3/AwAEAAIAAAAqAP7/AwAEAAIAAAAqAP3/AwAEAAIAAAApAP7/AwAEAAIAAAAkAPr/AwANAAMAAAAjAPr/AwAMAAMAAAAiAPr/AwAKAAMAAAAhAPr/AwAJAAMAAAAdAPn/AwAPAAMAAAAZAPn/AwAPAAMAAAAQAPn/AwANAAMAAAAOAPn/AwAKAAMAAAANAPn/AwAKAAMAAAAPAPn/AwAKAAMAAAAMAPn/AwAKAAMAAAALAPn/AwAKAAMAAAAKAPn/AwAJAAMAAAAVAPn/AwANAAMAAAAUAPn/AwAJAAMAAAAKAPX/AwAJAAMAAAALAPX/AwAKAAMAAAAMAPX/AwAKAAMAAAANAPX/AwAKAAMAAAAOAPX/AwANAAMAAAAQAPT/AwAJAAMAAAARAPT/AwAKAAMAAAASAPT/AwAKAAMAAAATAPT/AwAKAAMAAAAUAPT/AwAKAAMAAAAVAPT/AwAKAAMAAAAWAPT/AwANAAMAAAAZAPT/AwAJAAMAAAAaAPT/AwAKAAMAAAAbAPT/AwANAAMAAAAjAPT/AwAJAAMAAAAkAPT/AwAKAAMAAAAlAPT/AwAKAAMAAAAmAPT/AwAKAAMAAAAnAPT/AwAKAAMAAAAoAPT/AwAKAAMAAAApAPT/AwAKAAMAAAAqAPT/AwAKAAMAAAAfAPT/AwAPAAMAAAAoAPr/AwAJAAMAAAApAPr/AwAKAAMAAAAqAPr/AwANAAMAAAA=")
+tile_set = ExtResource("2_4big0")
+
+[node name="Decoration" type="TileMapLayer" parent="TileMaps"]
+z_index = 2
+use_parent_material = true
+position = Vector2(-127, 26)
+tile_map_data = PackedByteArray("AAALAAkAAwABAAEAAAASAAkAAwAPAAMAAAAWAAkAAwABAAEAAAAjAAkAAwABAAEAAAAYAAoAAwALAAMAAAAYAAkAAwALAAMAAAAYAAgAAwALAAIAAAAZAAgAAwAMAAIAAAAaAAgAAwAMAAIAAAAcAAgAAwANAAIAAAAbAAgAAwAMAAIAAAAcAAkAAwANAAMAAAAcAAoAAwANAAMAAAAdAAgAAwAOAAIAAAAeAAgAAwAOAAIAAAAfAAgAAwAOAAIAAAAgAAgAAwAPAAIAAAAgAAkAAwAPAAMAAAAgAAoAAwAPAAMAAAAcAAcAAwALAAMAAAAcAAYAAwALAAMAAAAcAAUAAwALAAIAAAAdAAUAAwAMAAIAAAAeAAUAAwAMAAIAAAAfAAUAAwAMAAIAAAAgAAUAAwAPAAIAAAAgAAYAAwAPAAMAAAAgAAcAAwAPAAMAAAAOAAoAAwALAAMAAAAOAAkAAwALAAMAAAAOAAgAAwALAAMAAAAOAAYAAwALAAIAAAAOAAUAAwALAAMAAAAOAAQAAwALAAMAAAAOAAMAAwALAAMAAAASAAoAAwAPAAMAAAASAAgAAwAPAAMAAAASAAYAAwAPAAIAAAASAAUAAwAPAAMAAAASAAQAAwAPAAMAAAASAAMAAwAPAAMAAAASAAIAAwAPAAIAAAAQAAoAAwANAAMAAAAQAAkAAwANAAMAAAAQAAgAAwANAAMAAAAQAAUAAwANAAMAAAAQAAQAAwANAAMAAAAQAAMAAwANAAMAAAAQAAIAAwANAAIAAAAQAAYAAwANAAIAAAARAAIAAwAOAAIAAAAPAAIAAwAOAAIAAAAOAAIAAwALAAIAAAARAAYAAwAOAAIAAAAPAAYAAwAMAAIAAAAOAAcAAwANAAMAAAAQAAcAAwANAAMAAAASAAcAAwANAAMAAAA=")
+tile_set = ExtResource("3_mf6tq")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="5-Sky" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(-144, -2)
+motion_scale = Vector2(0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/5-Sky"]
+position = Vector2(416.5, 107)
+scale = Vector2(1.89236, 1)
+texture = ExtResource("4_7xb8y")
+region_rect = Rect2(0, 0, 576, 208)
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/5-Sky"]
+position = Vector2(144, -207)
+scale = Vector2(1.89236, 1)
+texture = ExtResource("4_7xb8y")
+centered = false
+region_rect = Rect2(0, 0, 576, 208)
+
+[node name="4-Floating-Clouds" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(-144, -2)
+motion_scale = Vector2(0.05, 0.05)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/4-Floating-Clouds"]
+position = Vector2(432, 102)
+texture = ExtResource("5_34ia6")
+region_enabled = true
+region_rect = Rect2(0, 0, 576, 208)
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/4-Floating-Clouds"]
+position = Vector2(550, 17)
+texture = ExtResource("5_34ia6")
+region_rect = Rect2(0, 0, 576, 208)
+
+[node name="Sprite2D3" type="Sprite2D" parent="ParallaxBackground/4-Floating-Clouds"]
+position = Vector2(-34, -203)
+texture = ExtResource("5_34ia6")
+centered = false
+offset = Vector2(200, 0)
+region_rect = Rect2(0, 0, 576, 208)
+
+[node name="3-Background-cloud" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(-244, 16)
+motion_scale = Vector2(0.1, 0.1)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/3-Background-cloud"]
+position = Vector2(389, 120)
+texture = ExtResource("6_d18o5")
+region_rect = Rect2(0, 0, 576, 208)
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/3-Background-cloud"]
+position = Vector2(531, 16)
+texture = ExtResource("6_d18o5")
+centered = false
+region_rect = Rect2(0, 0, 576, 208)
+
+[node name="3-Background-cloud2" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(-378, -45)
+motion_scale = Vector2(0.3, 0.15)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ParallaxBackground/3-Background-cloud2"]
+position = Vector2(379, 71)
+sprite_frames = SubResource("SpriteFrames_7xb8y")
+autoplay = "default"
+frame = 1
+frame_progress = 1.0
+centered = false
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="ParallaxBackground/3-Background-cloud2"]
+position = Vector2(666, 71)
+sprite_frames = SubResource("SpriteFrames_7xb8y")
+autoplay = "default"
+frame = 1
+frame_progress = 1.0
+centered = false
+
+[node name="Camera" parent="." instance=ExtResource("5_d18o5")]
+position = Vector2(28, 196)
+limit_right = 550
+
+[node name="Player" parent="." instance=ExtResource("1_ry6l7")]
+position = Vector2(453, -179)
+collision_mask = 25
+
+[node name="LevelEnd" parent="." instance=ExtResource("11_t8vtq")]
+position = Vector2(472, 171)
+next_level = "end_screen"
+
+[node name="CollisionShape2D" parent="LevelEnd" index="0"]
+position = Vector2(33, -357)
+
+[node name="Skeleton" parent="." instance=ExtResource("11_ei81g")]
+position = Vector2(332, 9)
+
+[editable path="LevelEnd"]
